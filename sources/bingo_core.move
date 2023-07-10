@@ -1582,6 +1582,15 @@
         ];
         assert!(check_rows(&fifth_row), 4);
 
+        let all_numbers = vector[
+            vector[option::some(1), option::some(12), option::some(4), option::some(8), option::some(11)],
+            vector[option::some(16), option::some(18), option::some(21), option::some(17), option::some(26)],
+            vector[option::some(31), option::some(32), option::none(), option::some(44), option::some(41)],
+            vector[option::some(46), option::some(51), option::some(49), option::some(50), option::some(52)],
+            vector[option::some(63), option::some(61), option::some(70), option::some(74), option::some(75)],
+        ];
+        assert!(!check_rows(&all_numbers), 6);
+        
         let numbers_random_pattern = vector[
             vector[option::some(11), option::some(12), option::some(4), option::some(8), option::none()],
             vector[option::some(16), option::none(), option::some(21), option::none(), option::some(26)],
@@ -1591,13 +1600,5 @@
         ];
         assert!(!check_rows(&numbers_random_pattern), 5);
 
-        let all_numbers = vector[
-            vector[option::some(1), option::some(12), option::some(4), option::some(8), option::some(11)],
-            vector[option::some(16), option::some(18), option::some(21), option::some(17), option::some(26)],
-            vector[option::some(31), option::some(32), option::none(), option::some(44), option::some(41)],
-            vector[option::some(46), option::some(51), option::some(49), option::some(50), option::some(52)],
-            vector[option::some(63), option::some(61), option::some(70), option::some(74), option::some(75)],
-        ];
-        assert!(!check_rows(&all_numbers), 6);
     }
 }
