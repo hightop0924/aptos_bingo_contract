@@ -41,6 +41,10 @@ module overmind::bingo_events {
         CreateGameEvent { game_name, entry_fee, start_timestamp, timestamp }
     }
 
+    public fun new_bingo_event(game_name: String, player: address, timestamp: u64): BingoEvent {
+        BingoEvent { game_name, player, timestamp }
+    }
+
     public fun new_inser_number_event(game_name: String, number: u8, timestamp: u64): InsertNumberEvent {
         InsertNumberEvent { game_name, number, timestamp }
     }
@@ -51,11 +55,8 @@ module overmind::bingo_events {
         numbers: vector<vector<u8>>,
         timestamp: u64
     ): JoinGameEvent {
+        
         JoinGameEvent { game_name, player, numbers, timestamp }
-    }
-
-    public fun new_bingo_event(game_name: String, player: address, timestamp: u64): BingoEvent {
-        BingoEvent { game_name, player, timestamp }
     }
 
     public fun new_cance_game_event(game_name: String, timestamp: u64): CancelGameEvent {
