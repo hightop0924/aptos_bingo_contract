@@ -59,7 +59,21 @@ module overmind::bingo_events {
         JoinGameEvent { game_name, player, numbers, timestamp }
     }
 
+    public fun prev_join_game_event(
+        game_name: String,
+        player: address,
+        numbers: vector<vector<u8>>,
+        timestamp: u64
+    ): JoinGameEvent {
+        
+        JoinGameEvent { game_name, player, numbers, timestamp }
+    }
+
     public fun new_cance_game_event(game_name: String, timestamp: u64): CancelGameEvent {
+        CancelGameEvent { game_name, timestamp }
+    }
+
+    public fun old_cance_game_event(game_name: String, timestamp: u64): CancelGameEvent {
         CancelGameEvent { game_name, timestamp }
     }
 }
